@@ -8,8 +8,6 @@ import { HttpException } from '@nestjs/common';
 import { HttpStatus } from '@nestjs/common';
 import { ResetPasswordDto } from './dtos/resetPassword.dto';
 import { UpdateUserDto } from './dtos/updateUser.dto';
-import { Twilio } from 'twilio';
-import { VerifyPhoneNumberDto } from './dtos/verifyPhoneNumber.dto';
 import { DatabaseService } from 'src/database/database.service';
 import { verifyEmailDto } from './dtos/verifyEmailDto';
 import { MailerService } from '@nestjs-modules/mailer';
@@ -150,11 +148,6 @@ export class AuthService {
           subject:'verify code',
           text:`Verification Code Is : ${fourDigits}`,
         })
-        // await client.messages.create({
-        //   body: `Verification Code Is : ${fourDigits}`,
-        //   from: process.env.TWILIO_NUMBER,
-        //   to: user.phoneNumber,
-        // });
       } catch (err) {
         console.error(err);
       }

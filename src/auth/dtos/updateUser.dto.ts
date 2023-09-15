@@ -36,8 +36,4 @@ export class UpdateUserDto {
   @MaxLength(20)
   @Validate(PasswordValidation, [passwordRequirement])
   password: string;
-
-  @IsNotEmpty()
-  @IsOptional()
-  age: number;
 }
