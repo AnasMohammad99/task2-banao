@@ -23,6 +23,7 @@ export class PostController {
   //all routes need user auth so if you don't have a user account, you unauthrized to use them
   // Add new post
   // post can be included -optional- file like image or txt file
+  // I connect user with his likes and comments throw token so I don't need to pass user Id in api request body 
   @UseGuards(JwtAuthGuard)
   @Post()
   @UseInterceptors(FileInterceptor('file'))
